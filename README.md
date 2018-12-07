@@ -3,20 +3,20 @@
 
 ## Setup Instructions
 
-To integrate YZTNavigationBar into your Xcode project using CocoaPods, specify it in your Podfile:
+To integrate EasyNavigationBar into your Xcode project using CocoaPods, specify it in your Podfile:
 
-pod 'YZTNavigationBar', and in your code add import YZTNavigationBar.
+pod 'EasyNavigationBar', and in your code add import EasyNavigationBar.
 
 ## Manually
 
-Just add YZTNavigationBar folder to your project.
+Just add EasyNavigationBarView folder to your project.
 
 ## Basic Examples
 
 
 * 1、Normal style
 
-![ScreenShot](https://github.com/wsj2012/YZTNavigationBar/blob/master/System.png?raw=true)
+![ScreenShot](https://github.com/wsj2012/EasyNavigationBar/blob/master/System.png?raw=true)
 
 
 ```
@@ -40,7 +40,7 @@ statusBarStyle = .default
 
 * 2、Custom Style
 
-![baidu](https://github.com/wsj2012/YZTNavigationBar/blob/master/Custom.gif?raw=true) 
+![baidu](https://github.com/wsj2012/EasyNavigationBar/blob/master/Custom.gif?raw=true) 
 
 ```
 
@@ -48,12 +48,12 @@ func setNavbarAppearanc() {
 // 设置导航栏颜色
 navBar.barBackgroundColor = UIColor(red: 247/255.0, green: 247/255.0, blue: 247/255.0, alpha: 1.0)
 // 设置初始导航栏透明度
-navBar.yzt_setBackgroundAlpha(alpha: 0)
+navBar.easy_setBackgroundAlpha(alpha: 0)
 // 设置标题文字颜色
 navBar.titleLabelColor = UIColor.white
-navBar.yzt_setRightButton(title: "设置", titleColor: .white)
+navBar.easy_setRightButton(title: "设置", titleColor: .white)
 statusBarStyle = .lightContent
-navBar.onClickRightButton = {
+navBar.onRightButtonDidClick = {
 
 }
 }
@@ -67,15 +67,15 @@ let offsetY = scrollView.contentOffset.y
 if (offsetY > NAVBAR_COLORCHANGE_POINT)
 {
 let alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / CGFloat(kNavBarBottom)
-navBar.yzt_setBackgroundAlpha(alpha: alpha)
-navBar.yzt_setTintColor(color: UIColor.black.withAlphaComponent(alpha))
+navBar.easy_setBackgroundAlpha(alpha: alpha)
+navBar.easy_setTintColor(color: UIColor.black.withAlphaComponent(alpha))
 navBar.titleLabelColor = UIColor.black.withAlphaComponent(alpha)
 statusBarStyle = .default
 }
 else
 {
-navBar.yzt_setBackgroundAlpha(alpha: 0)
-navBar.yzt_setTintColor(color: .white)
+navBar.easy_setBackgroundAlpha(alpha: 0)
+navBar.easy_setTintColor(color: .white)
 navBar.titleLabelColor = .white
 statusBarStyle = .lightContent
 }
