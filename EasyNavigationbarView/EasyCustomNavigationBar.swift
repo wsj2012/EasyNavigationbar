@@ -175,7 +175,7 @@ extension EasyCustomNavigationBar
         easy_setLeftButton(normal: nil, highlighted: nil, title: title, titleColor: titleColor)
     }
     
-    public func yzt_setRightButton(normal:UIImage, highlighted:UIImage) {
+    public func easy_setRightButton(normal:UIImage, highlighted:UIImage) {
         easy_setRightButton(normal: normal, highlighted: highlighted, title: nil, titleColor: nil)
     }
     public func easy_setRightButton(image:UIImage) {
