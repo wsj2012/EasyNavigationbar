@@ -21,18 +21,18 @@ Just add EasyNavigationBarView folder to your project.
 
 ```
 func setNavbarAppearance() {
-// 导航栏颜色
-navBarBarTintColor = .white
-// 导航栏透明度
-navBarBackgroundAlpha = 1
-// 导航栏两边按钮颜色
-navBarTintColor = .black
-// 导航栏上标题颜色
-navBarTitleColor = .black
-// 导航栏底部分割线是否隐藏
-navBarShadowImageHidden = true;
-// 状态栏是 default 还是 lightContent
-statusBarStyle = .default
+	// 导航栏颜色
+	navBarBarTintColor = .white
+	// 导航栏透明度
+	navBarBackgroundAlpha = 1
+	// 导航栏两边按钮颜色
+	navBarTintColor = .black
+	// 导航栏上标题颜色
+	navBarTitleColor = .black
+	// 导航栏底部分割线是否隐藏
+	navBarShadowImageHidden = true;
+	// 状态栏是 default 还是 lightContent
+	statusBarStyle = .default
 }
 
 
@@ -45,41 +45,39 @@ statusBarStyle = .default
 ```
 
 func setNavbarAppearanc() {
-// 设置导航栏颜色
-navBar.barBackgroundColor = UIColor(red: 247/255.0, green: 247/255.0, blue: 247/255.0, alpha: 1.0)
-// 设置初始导航栏透明度
-navBar.easy_setBackgroundAlpha(alpha: 0)
-// 设置标题文字颜色
-navBar.titleLabelColor = UIColor.white
-navBar.easy_setRightButton(title: "设置", titleColor: .white)
-statusBarStyle = .lightContent
-navBar.onRightButtonDidClick = {
-
-}
+	// 设置导航栏颜色
+	navBar.barBackgroundColor = UIColor(red: 247/255.0, green: 247/255.0, blue: 247/255.0, alpha: 1.0)
+	// 设置初始导航栏透明度
+	navBar.easy_setBackgroundAlpha(alpha: 0)
+	// 设置标题文字颜色
+	navBar.titleLabelColor = UIColor.white
+	navBar.easy_setRightButton(title: "设置", titleColor: .white)
+	statusBarStyle = .lightContent
+	navBar.onRightButtonDidClick = {
+	
+	}
 }
 
 // MARK: - ScrollViewDidScroll
 extension YZTPersonalCenterViewController
 {
-func scrollViewDidScroll(_ scrollView: UIScrollView)
-{
-let offsetY = scrollView.contentOffset.y
-if (offsetY > NAVBAR_COLORCHANGE_POINT)
-{
-let alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / CGFloat(kNavBarBottom)
-navBar.easy_setBackgroundAlpha(alpha: alpha)
-navBar.easy_setTintColor(color: UIColor.black.withAlphaComponent(alpha))
-navBar.titleLabelColor = UIColor.black.withAlphaComponent(alpha)
-statusBarStyle = .default
-}
-else
-{
-navBar.easy_setBackgroundAlpha(alpha: 0)
-navBar.easy_setTintColor(color: .white)
-navBar.titleLabelColor = .white
-statusBarStyle = .lightContent
-}
-}
+	func scrollViewDidScroll(_ scrollView: UIScrollView)
+	{
+		let offsetY = scrollView.contentOffset.y
+		if (offsetY > NAVBAR_COLORCHANGE_POINT)
+		{
+			let alpha = (offsetY - NAVBAR_COLORCHANGE_POINT) / CGFloat(kNavBarBottom)
+			navBar.easy_setBackgroundAlpha(alpha: alpha)
+			navBar.easy_setTintColor(color: UIColor.black.withAlphaComponent(alpha))
+			navBar.titleLabelColor = UIColor.black.withAlphaComponent(alpha)
+			statusBarStyle = .default
+		} else {
+			navBar.easy_setBackgroundAlpha(alpha: 0)
+			navBar.easy_setTintColor(color: .white)
+			navBar.titleLabelColor = .white
+			statusBarStyle = .lightContent
+		}
+	}
 }
 
 ```
