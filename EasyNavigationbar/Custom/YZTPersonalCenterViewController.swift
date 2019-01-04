@@ -46,6 +46,8 @@ class YZTPersonalCenterViewController: BaseViewController {
         navBar.easy_setBackgroundAlpha(alpha: 0)
         // 设置标题文字颜色
         navBar.titleLabelColor = UIColor.white
+        
+//        navBar.easy_setLeftButtonHidden(hidden: true)
     }
 
 }

@@ -153,6 +153,12 @@ extension EasyCustomNavigationBar
     public func easy_setBottomLineHidden(hidden:Bool) {
         bottomLine.isHidden = hidden
     }
+    public func easy_setLeftButtonHidden(hidden: Bool) {
+        leftButton.isHidden = hidden
+    }
+    public func easy_setRightButtonHidden(hidden: Bool) {
+        rightButton.isHidden = hidden
+    }
     public func easy_setBackgroundAlpha(alpha:CGFloat) {
         backgroundView.alpha = alpha
         backgroundImageView.alpha = alpha
