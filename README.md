@@ -9,17 +9,17 @@ pod 'EasyNavigationBar', and in your code add import EasyNavigationBar.
 
 ## Manually
 
-Just add EasyNavigationBarView folder to your project.
+Add `EasyNavigationBar.swift` to your project.
 
 ## Basic Examples
 
 
-* 1、Normal style
+* Normal style
 
 ![ScreenShot](https://github.com/wsj2012/EasyNavigationBar/blob/master/System.png?raw=true)
 
 
-```
+```swift
 func setNavbarAppearance() {
 	// 导航栏颜色
 	navBarBarTintColor = .white
@@ -34,15 +34,16 @@ func setNavbarAppearance() {
 	// 状态栏是 default 还是 lightContent
 	statusBarStyle = .default
 }
-
-
 ```
 
-* 2、Custom Style
+* Custom Style
 
 ![baidu](https://github.com/wsj2012/EasyNavigationBar/blob/master/Custom.gif?raw=true) 
 
-```
+```swift
+
+private let HEADER_HEIGHT:CGFloat = 260
+private let NAVBAR_COLORCHANGE_POINT:CGFloat = HEADER_HEIGHT - CGFloat(kNavBarBottom * 2)
 
 func setNavbarAppearanc() {
 	// 设置导航栏颜色
@@ -59,7 +60,7 @@ func setNavbarAppearanc() {
 }
 
 // MARK: - ScrollViewDidScroll
-extension YZTPersonalCenterViewController
+extension ViewController
 {
 	func scrollViewDidScroll(_ scrollView: UIScrollView)
 	{
