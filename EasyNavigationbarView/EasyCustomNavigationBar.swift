@@ -216,13 +216,32 @@ extension EasyCustomNavigationBar
         if let onClickBack = onLeftButtonDidClick {
             onClickBack()
         } else {
-            let currentVC = UIViewController.easy_currentViewController()
-            currentVC.easy_toLastViewController(animated: true)
+            if let currentVC = easy_currentViewController() {
+                if currentVC.presentingViewController == nil {
+                    currentVC.navigationController?.popViewController(animated: true)
+                } else {
+                    currentVC.dismiss(animated: true, completion: nil)
+                }
+                //currentVC.easy_toLastViewController(animated: true)
+            }
         }
     }
+    
     @objc func clickRight() {
         if let onClickRight = onRightButtonDidClick {
             onClickRight()
+        }
+    }
+    
+    func easy_currentViewController() -> UIViewController? {
+        
+        //let rootVc = UIApplication.shared.keyWindow?.rootViewController
+        //if let targetRoot = self.next?.next?.next,targetRoot == rootVc,
+        if let target = self.next?.next, target.isKind(of: UIViewController.self)
+        {
+            return target as? UIViewController
+        } else {
+            return nil
         }
     }
 }
