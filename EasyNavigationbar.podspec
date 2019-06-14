@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "EasyNavigationbar"
-s.version      = "1.0.2"
+s.version      = "1.0.3"
 s.summary      = "定制UINavigationBar样式，可全局统一设置默认样式，在各页面灵活定制自己的样式。"
 s.homepage     = "https://github.com/wsj2012/EasyNavigationbar"
 s.license      = "MIT"

@@ -268,28 +268,20 @@ extension UIViewController
         }
     }
     
-    public static func easy_currentViewController() -> UIViewController {
-        if let rootVC = UIApplication.shared.delegate?.window??.rootViewController {
-            return self.easy_currentViewController(from: rootVC)
-        } else {
-            return UIViewController()
-        }
+    public static func easy_currentViewController() -> UIViewController? {
+        return self.easy_currentViewController(base: UIApplication.shared.delegate?.window??.rootViewController)
     }
     
-    public static func easy_currentViewController(from fromVC:UIViewController) -> UIViewController {
-        if fromVC.isKind(of: UINavigationController.self) {
-            let navigationController = fromVC as! UINavigationController
-            return easy_currentViewController(from: navigationController.viewControllers.last!)
+    public static func easy_currentViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return easy_currentViewController(base: nav.visibleViewController)
         }
-        else if fromVC.isKind(of: UITabBarController.self) {
-            let tabBarController = fromVC as! UITabBarController
-            return easy_currentViewController(from: tabBarController.selectedViewController!)
+        if let tab = base as? UITabBarController {
+            return easy_currentViewController(base: tab.selectedViewController)
         }
-        else if fromVC.presentedViewController != nil {
-            return easy_currentViewController(from:fromVC.presentingViewController!)
+        if let presented = base?.presentedViewController {
+            return easy_currentViewController(base: presented)
         }
-        else {
-            return fromVC
-        }
+        return base
     }
 }
