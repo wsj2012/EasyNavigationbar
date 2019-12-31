@@ -968,8 +968,8 @@ extension EasyNavigationBar
     public static func isIphoneX() -> Bool {
         if #available(iOS 11.0, *) {
             // 利用safeAreaInsets.bottom > 0.0来判断是否是iPhone X以上设备。
-            if let delegate = UIApplication.shared.delegate, let w = delegate.window, let b = w?.safeAreaInsets.bottom {
-                if b > 0.0 {
+            if let w = UIApplication.shared.keyWindow {
+                if w.safeAreaInsets.bottom > 0.0 {
                     return true
                 }else {
                     return false
