@@ -269,7 +269,7 @@ extension UIViewController
     }
     
     public static func easy_currentViewController() -> UIViewController? {
-        return self.easy_currentViewController(base: UIApplication.shared.delegate?.window??.rootViewController)
+        return self.easy_currentViewController(base: UIApplication.shared.keyWindow?.rootViewController)
     }
     
     public static func easy_currentViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
